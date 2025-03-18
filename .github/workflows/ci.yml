@@ -1,0 +1,24 @@
+
+
+# .github/workflows/ci.yaml
+name: HW8-NN
+on: push
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository code
+        uses: actions/checkout@v2
+
+      - name: Set up Python 3.12
+        uses: actions/setup-python@v2
+        with:
+          python-version: 3.12
+
+      - name: Install package
+        run: |
+          pip install .
+      - name: Test with pytest
+        run: |
+          python -m pytest -vv test/*py
