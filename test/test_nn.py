@@ -245,13 +245,13 @@ def test_one_hot_encode_seqs():
     One hot encoding translates all the base pairs and can handle
     repeats in a sequence.
     """
-    test_seq = "ATTCG"
+    test_seq = ["ATTCG"]
     encoded_seq = preprocess.one_hot_encode_seqs(test_seq)
-    expected = [
+    expected = [[
         1, 0, 0, 0,
         0, 1, 0, 0,
         0, 1, 0, 0,
         0, 0, 1, 0,
         0, 0, 0, 1,
-    ]
+    ]]
     assert encoded_seq == expected
